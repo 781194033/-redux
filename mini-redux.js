@@ -5,9 +5,9 @@
  * @Last Modified time: 2018-06-03 15:21:30
  */
 
-function createStore(reducer, applyMiddleware) {
+function createStore(reducer, enhancer) {
 	if (enhancer) {
-		return applyMiddleware(createStore)(reducer)
+		return enhancer(createStore)(reducer)
 	}
 	let currentState = {}
 	let currentListeners = []
